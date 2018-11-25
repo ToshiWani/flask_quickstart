@@ -27,11 +27,16 @@ $ sudo apt install apache2 apache2-dev
 
 ## Clone this quickstart
 
-Clone this quickstart project under Apache's document directory `/var/www`. And, give permission to www-
+Clone this quickstart project under Apache's document directory `/var/www`. And, give permission to `www-data`
 ```bash
 $ git clone https://github.com/ToshiWani/flask_quickstart.git /var/www/flask_quickstart
 $ sudo chown -R www-data:www-data /var/www/flask_quickstart/
 $ sudo chmod -R 775 /var/www/flask_quickstart/
+```
+
+Open the `config.py` and update the `MONGO_URI` parameter for your own environment.
+```bash
+$ vim /var/www/flask_quickstart/flask_quickstart/config.py
 ```
 
 
@@ -111,7 +116,7 @@ Create `flask_quickstart.wsgi` file
 $ vim /var/www/flask_quickstart/flask_quickstart.wsgi
 ```
 
-Copy, paste and save the following lines into the `flask_quickstart.wsgi` file.
+Copy, paste and save the following lines into the `flask_quickstart.wsgi` file.  Alternatively, rename the `flask_quickstart.wsgi.example` file to `flask_quickstart.wsgi`.
 ```python
 #!/usr/bin/python3.6
 import sys

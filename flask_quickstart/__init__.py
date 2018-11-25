@@ -3,7 +3,7 @@ from flask_pymongo import PyMongo
 import sys
 
 app = Flask(__name__)
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/flask_quickstart'
+app.config.from_object('isr_rotation.config')
 mongo = PyMongo(app)
 
 
