@@ -3,7 +3,7 @@ from flask_pymongo import PyMongo
 import sys
 
 app = Flask(__name__)
-app.config.from_object('isr_rotation.config')
+app.config.from_object('flask_quickstart.config')
 mongo = PyMongo(app)
 
 

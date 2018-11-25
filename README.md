@@ -152,7 +152,7 @@ Paste the content below. Replace the `ServerName` parameter for your own server 
 So far, your Apache document `/var/www/flask_quickstart` directory would look like this...
 
 ```
-/var/www/flask_quickstart
+flask_quickstart
 ├── flask_quickstart
 │   ├── __init__.py
 │   └── templates
