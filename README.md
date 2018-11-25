@@ -106,9 +106,9 @@ Restore packages from `requirements.txt`
 $ pip3.6 install -r /var/www/flask_quickstart/requirements.txt
 ```
 
-Create `flask_quickstart.wsgi` file
+Create `flask_quickstart.wsgi` file 
 ```bash
-
+$ vim /var/www/flask_quickstart/flask_quickstart.wsgi
 ```
 
 Copy, paste and save the following lines into the `flask_quickstart.wsgi` file.
@@ -128,13 +128,13 @@ Create a new virtual host file `flask_quickstart.conf`
 $ sudo vim /etc/apache2/sites-available/flask_quickstart.conf
 ``` 
  
-Paste the content below. Replace the `ServerName` parameter for your own server IP address. If it is not sure, use the IP address of the `inet` by running the `ifconfig` command.  
+Paste the content below. Replace the `ServerName` parameter for your own server IP address. If it is not sure, use the IP address of the `inet` by running the `ifconfig` command.  Please note that the `flask_quickstart` directory is under another `flask_quickstart`. This is not an error.  Also make sure that the `flask_quickstart.wsgi` file is under the first `flask_quickstart` directory.
 ```xml
 <VirtualHost *:80>
      ServerName xxx.xxx.xxx.xxx
      ServerAdmin your@email.com
      WSGIScriptAlias / /var/www/flask_quickstart/flask_quickstart.wsgi
-     <Directory /var/www/flask_quickstart/>
+     <Directory /var/www/flask_quickstart/flask_quickstart/>
         Order allow,deny
         Allow from all
      </Directory>
@@ -143,6 +143,20 @@ Paste the content below. Replace the `ServerName` parameter for your own server 
      CustomLog ${APACHE_LOG_DIR}/flask_quickstart-access.log combined
 </VirtualHost>
 ```
+
+So far, your Apache document `/var/www/flask_quickstart` directory would look like this...
+
+```
+/var/www/flask_quickstart
+├── flask_quickstart
+│   ├── __init__.py
+│   └── templates
+│       └── index.html
+├── flask_quickstart.wsgi
+├── README.md
+└── requirements.txt
+```
+
 
 Activate the virtual host and restart Apache
 
