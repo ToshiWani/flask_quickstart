@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Quickstart</title>
+</head>
+<body>
+
+<h1>Flask Quickstart with MongoDB</h1>
+
+<p><em>{{ versions }}</em></p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for d in dogs %}
+        <tr>
+            <td>{{ d.name }}</td>
+            <td>{{ d.age }}</td>
+            <td>{{ d._id }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p>Total {{ count }} Dogs<p/>
+
+
+</body>
+</html>
